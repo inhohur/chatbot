@@ -1,0 +1,14 @@
+CREATE DATABASE newshadow ;
+
+// TestController 에서 사용하는 테이블들. 
+
+CREATE TABLE test (
+	id VARCHAR(10) NOT NULL,
+	pw VARCHAR(10),
+	name VARCHAR(10),
+	PRIMARY KEY(id)
+);
+
+INSERT INTO TEST(id, pw, name) VALUES('test1', 'pass1', 'name1');
+INSERT INTO TEST(id, pw, name) VALUES('test2', 'pass2', 'name2');
+
