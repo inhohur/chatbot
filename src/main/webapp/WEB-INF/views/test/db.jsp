@@ -7,7 +7,7 @@
 <body>
 <h1>
 	DB Test.
-	<P> Log message : ${log} </P>
+	Log message : ${log}
 	  
 </h1>
 

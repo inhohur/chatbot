@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<Configuration>
+
+  <Appenders>
+    <Console name="console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+    <File name="logfile" fileName="/Users/inhohur/study/chatbot/logs/webapp.log" append="true">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+  	</File>
+  </Appenders>
+  
+  <Loggers>
+    <Logger name="com.inho.chatbot" level="DEBUG" additivity="false">
+      <AppenderRef ref="console"/>
+      <AppenderRef ref="logfile"/>
+    </Logger>
+    <Logger name="jdbc.sqlonly" level="INFO" additivity="false">
+      <AppenderRef ref="console"/>
+    </Logger>
+    <Logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+      <AppenderRef ref="console"/>
+    </Logger>
+    <Root level="ERROR">
+      <AppenderRef ref="console"/>
+      <AppenderRef ref="logfile"/>
+    </Root>
+  </Loggers>
+  
+</Configuration>
