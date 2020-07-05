@@ -5,7 +5,6 @@
     <configuration>
  
  		<typeAliases>
- 			<typeAlias type="com.inho.chatbot.test.dao.TestDAO" alias="TestDAO"/>
  		</typeAliases>
         
     </configuration>

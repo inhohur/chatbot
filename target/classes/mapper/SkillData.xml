@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inho.chatbot.skill.dao.SkillDataDAO">
+
+	<resultMap id="skillDataResultMap" type="com.inho.chatbot.skill.dao.SkillDataVO">
+		<result property="bot" column="bot"/>
+		<result property="skill" column="skill"/>
+		<result property="section" column="section"/>
+		<result property="sequence" column="sequence"/>
+		<result property="type" column="type"/>
+		<result property="content" column="content"/>
+	</resultMap>
+
+
+	<select id="selectSkillDataByBotSkillSection" resultMap="skillDataResultMap">
+			SELECT
+				sequence, type, content
+			FROM skilldata
+			WHERE bot=#{bot} AND skill=#{skill} AND section=#{section}
+			ORDER BY sequence
+	</select>
+
+</mapper>

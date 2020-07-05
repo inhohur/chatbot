@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inho.chatbot.skill.dao.SkillSessionDAO">
+
+	<resultMap id="skillSessionResultMap" type="com.inho.chatbot.skill.dao.SkillSessionVO">
+		<result property="userId" column="userid"/>
+		<result property="bot" column="bot"/>
+		<result property="skill" column="skill"/>
+		<result property="currentSection" column="currentsection"/>
+		<result property="sessionVariables" column="sessionvariables"/>
+	</resultMap>
+
+
+	<select id="selectSkillSessionByUserBot" resultMap="skillSessionResultMap">
+			SELECT
+				userid, bot, skill, currentsection, sessionvariables
+			FROM skillsession
+			WHERE userid=#{userid} AND bot=#{bot}
+	</select>
+
+	<insert id="insertSkillSessionByUserBotSkillSection" parameterType="hashMap">
+			INSERT INTO skillsession(userid, bot, skill, currentsection)
+			VALUES(#{userid}, #{bot}, #{skill}, #{currentsection})
+	</insert>
+	
+	<update id="updateSectionOfSkillSessionByUserBotSkill" parameterType="com.inho.chatbot.skill.dao.SkillSessionVO">
+			UPDATE skillsession SET currentsection=#{currentSection}, sessionvariables=#{sessionVariables}
+			WHERE userid=#{userId} AND bot=#{bot} AND skill=#{skill}
+	</update>
+
+	<delete id="deleteSkillSessionByUserBot" parameterType="hashMap">
+			DELETE FROM skillsession
+			WHERE userid=#{userid} AND bot=#{bot}
+	</delete>
+</mapper>
